@@ -15,7 +15,7 @@ export default (state = initialState, action) => {
       case 'REMOVE_BOOK':
          return {
             ...state,
-            items: state.items.filter(cart => cart.id != action.payload)
+            items: state.items.filter(cart => cart.id !== action.payload)
          };
       default:
          return state;
