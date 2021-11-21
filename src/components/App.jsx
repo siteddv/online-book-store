@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Card, Container } from 'semantic-ui-react';
 import srcBooks from '../books.json';
-import MenuComponent from './MenuComponent';
-import BookCard from './BookCard';
+import MenuComponent from '../containers/Menu';
+import BookCard from '../containers/BookCard';
 import Filter from '../containers/Filter';
 
 class App extends Component {

@@ -4,8 +4,11 @@ import * as booksActions from '../actions/books';
 import App from '../components/App';
 import orderBy from 'lodash/orderBy';
 
-const sortBy = (books, filterBy) => {
-   console.log(filterBy);
+const sortBy = (books, filterBy, searchQuery) => {
+   books = books.filter(b =>
+      b.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      b.author.toLowerCase().includes(searchQuery.toLowerCase())
+   );
    switch (filterBy) {
       case 'price_high':
          let res = orderBy(books, 'price', 'desc');
@@ -17,17 +20,18 @@ const sortBy = (books, filterBy) => {
          let res2 = orderBy(books, 'author', 'asc');
          return res2;
       default:
-         console.log('def');
          return books;
    }
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ booksReducer, filterReducer }) => {
    let res = {
-      books: sortBy(state.booksReducer.items, state.filterReducer.filterCriteria),
-      isReady: state.booksReducer.isReady
+      books: booksReducer.items
+         && sortBy(booksReducer.items,
+            filterReducer.filterCriteria,
+            filterReducer.searchQuery),
+      isReady: booksReducer.isReady
    };
-   console.log(res);
    return res;
 }
 

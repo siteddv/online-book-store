@@ -1,7 +1,7 @@
 import React from "react";
 import { Menu } from "semantic-ui-react";
 
-const MenuComponent = () => (
+const MenuComponent = ({ totalPrice, count }) => (
    <Menu>
       <Menu.Item name='browse'>
          Books store
@@ -9,17 +9,14 @@ const MenuComponent = () => (
 
       <Menu.Menu position='right'>
          <Menu.Item name='signup'>
-            Total: &nbsp; <b>0</b> &nbsp; USD.
+            Total: &nbsp; <b>{totalPrice}</b> &nbsp; USD.
          </Menu.Item>
 
          <Menu.Item name='help'>
-            Cart (<b>0</b>)
+            Cart (<b>{count}</b>)
          </Menu.Item>
       </Menu.Menu>
    </Menu>
 );
-
-console.log('Log');
-console.log(this);
 
 export default MenuComponent;
