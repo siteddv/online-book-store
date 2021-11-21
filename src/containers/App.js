@@ -24,7 +24,7 @@ const sortBy = (books, filterBy) => {
 
 const mapStateToProps = (state) => {
    let res = {
-      books: sortBy(state.booksReducer.items, state.booksReducer.filterCriteria),
+      books: sortBy(state.booksReducer.items, state.filterReducer.filterCriteria),
       isReady: state.booksReducer.isReady
    };
    console.log(res);

@@ -1,21 +1,19 @@
 const initialState = {
-   isReady: false,
-   items: null,
+   searchQuery: '',
    filterCriteria: 'all'
-}
+};
 
 export default (state = initialState, action) => {
    switch (action.type) {
-      case 'SET_BOOKS':
+      case 'SET_FILTER':
          return {
             ...state,
-            isReady: true,
-            items: action.payload
+            filterCriteria: action.payload
          };
-      case 'SET_IS_READY':
+      case 'SET_SEARCH_QUERY':
          return {
             ...state,
-            isReady: action.payload
+            searchQuery: action.payload
          };
       default:
          return state;

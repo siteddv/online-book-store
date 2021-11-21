@@ -4,7 +4,7 @@ import * as filterActions from '../actions/filter';
 import Filter from '../components/Filter';
 
 const mapStateToProps = (state) => ({
-   filterCriteria: state.booksReducer.filterCriteria,
+   filterCriteria: state.filterReducer.filterCriteria,
 })
 
 const mapDispatchToProps = dispatch => ({
